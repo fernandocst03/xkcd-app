@@ -2,9 +2,8 @@ import { Text, Container, Navbar, Button } from "@nextui-org/react"
 import { useState } from "react"
 import Link from "next/link"
 
-export default function Header () {
+export default function Header({ isOpenIndex, isOpenSearch}) {
    const [variant, setVariant] = useState("floating");
-
    return (
       <Navbar variant={variant} isBordered style={{
          width: "100%",
@@ -36,9 +35,23 @@ export default function Header () {
             hideIn="xs"
             variant="underline"
          >
-            <Navbar.Link isActive href="/">Home</Navbar.Link>
-            <Navbar.Link href="/about">About</Navbar.Link>
-            <Navbar.Link href="/search">Search</Navbar.Link>
+            <Navbar.Link
+               isActive={isOpenIndex}
+               href="/"
+            >
+               Home
+            </Navbar.Link>
+            <Navbar.Link
+               href="/about"
+            >
+               About
+            </Navbar.Link>
+            <Navbar.Link
+               isActive={isOpenSearch}
+               href="/search"
+            >
+               Search
+            </Navbar.Link>
          </Navbar.Content>
          <Navbar.Content
             activeColor="primary"
