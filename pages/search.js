@@ -3,6 +3,7 @@ import { useState } from "react"
 import Header from "../components/Header"
 import fs from "fs/promises"
 import Comic from "../components/Comic"
+import Footer from "../components/Footer"
 
 
 export default function Search({ allComics }) {
@@ -52,7 +53,7 @@ export default function Search({ allComics }) {
             placeItems: 'center',
             marginTop: '60px',
          }}>
-            <h4>Found comics</h4>
+            <h4>Comics</h4>
             <div 
                style={{
                   display: 'grid',
@@ -70,6 +71,7 @@ export default function Search({ allComics }) {
 					})}
             </div>
          </div>
+         <Footer/>
       </>
    )
 }

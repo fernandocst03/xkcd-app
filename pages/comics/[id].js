@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import fs from "fs/promises"
 import { readFile, stat } from "fs/promises"
 import { basename } from 'path';
+import Footer from '../../components/Footer';
 
 export default function Comic({ id, img, alt, title, nextId, prevId, hasNext, hasPrevius }) {
    return (
@@ -57,6 +58,7 @@ export default function Comic({ id, img, alt, title, nextId, prevId, hasNext, ha
                </div>
             </section>
          </main>
+         <Footer/>
       </>
    )
 }

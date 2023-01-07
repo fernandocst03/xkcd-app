@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import fs from "fs/promises"
 import styles from "../styles/Home.module.css"
 import Comic from '../components/Comic'
+import Footer from '../components/Footer'
 
 export default function Home({ latestComics }) {
 	return (
@@ -38,6 +39,7 @@ export default function Home({ latestComics }) {
 					})}
 				</div>
 			</main>
+			<Footer/>
 		</>
 	)
 }
