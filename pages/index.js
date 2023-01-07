@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Header from '../components/Header'
 import fs from "fs/promises"
 import styles from "../styles/Home.module.css"
+import Comic from '../components/Comic'
 
 export default function Home({ latestComics }) {
 	return (
@@ -14,7 +15,9 @@ export default function Home({ latestComics }) {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Header />
+			<Header
+				isOpenIndex={true}
+			/>
 			<main style={{
 				width: '100%',
 				display: 'grid',
@@ -28,21 +31,9 @@ export default function Home({ latestComics }) {
 				>
 					{latestComics.map((comic) => {
 						return (
-							<Link
-								href={`/comics/${comic.id}`}
-								key={comic.id}
-								className={styles.latestComic}
-								>
-								<h4
-									style={{
-										color: "#000",
-										fontSize: "15px",
-									}}
-								>{comic.title}</h4>
-								<Image width="400" height="500" src={comic.img} alt={comic.alt} style={{
-									objectFit: "contain",
-								}}/>
-							</Link>
+							<Comic
+								comic={comic}
+							/>
 						)
 					})}
 				</div>
@@ -51,7 +42,7 @@ export default function Home({ latestComics }) {
 	)
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
 	const files = await fs.readdir("./comics")
 	const lastestComicsFiles = files.slice(-8, files.length)
 	const prmisesReadFiles = lastestComicsFiles.map(async (file) => {
