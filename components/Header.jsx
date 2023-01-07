@@ -50,7 +50,7 @@ export default function Header({ isOpenIndex, isOpenSearch}) {
                isActive={isOpenSearch}
                href="/search"
             >
-               Search
+               All comics
             </Navbar.Link>
          </Navbar.Content>
          <Navbar.Content
